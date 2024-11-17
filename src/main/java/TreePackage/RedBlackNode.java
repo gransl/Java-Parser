@@ -1,6 +1,6 @@
 package TreePackage;
 //TODO: What do I gain by using inheritance? It feels like I have to redefine the parents, left, and right
-public class RedBlackNode<T> extends BinaryNode<T> {
+public class RedBlackNode<T> {
     T data;
     /** reference to parent */
     private RedBlackNode<T> parent;
@@ -9,7 +9,7 @@ public class RedBlackNode<T> extends BinaryNode<T> {
     /** reference to right node */
     private RedBlackNode<T> right;
     /** to color nodes red or black, uses Enum class */
-    RBColor color;
+    private boolean isBlack;
 
 
     /**
@@ -24,7 +24,7 @@ public class RedBlackNode<T> extends BinaryNode<T> {
         parent = newParent;
         left = newLeft;
         right = newRight;
-        color = RBColor.RED;
+        isBlack = false;
     }
 
     // --------------------- // --- MUTATORS AND ACCESSORS --- // --------------------- //
@@ -59,7 +59,50 @@ public class RedBlackNode<T> extends BinaryNode<T> {
     public void setRightChild(RedBlackNode<T> newRight) {
         parent = newRight;
     }
+
+    public void setBlack() {
+        isBlack = true;
+    }
+
+    public void setRed() {
+        isBlack = false;
+    }
+
+    public boolean getColor() {
+        return isBlack;
+    }
     // --------------------- // --- MUTATORS AND ACCESSORS END --- // --------------------- //
+
+
+    /** Counts the nodes in the subtree rooted at this node.
+     @return  The number of nodes in the subtree rooted at this node. */
+    public int getNumberOfNodes()
+    {
+        int leftNumber = 0;
+        int rightNumber = 0;
+        if (left != null)
+            leftNumber = left.getNumberOfNodes();
+        if (right != null)
+            rightNumber = right.getNumberOfNodes();
+        return 1 + leftNumber + rightNumber;
+    } // end getNumberOfNodes
+
+
+    /** Computes the height of the subtree rooted at this node.
+     @return  The height of the subtree rooted at this node. */
+    public int getHeight()
+    {
+        return getHeight(this); // Call private getHeight
+    } // end getHeight
+
+
+    private int getHeight(RedBlackNode<T> node)
+    {
+        int height = 0;
+        if (node != null)
+            height = 1 + Math.max(getHeight(node.getLeftChild()), getHeight(node.getRightChild()));
+        return height;
+    }
 
     /** Computes the black height of the subtree rooted at this node.
      *
@@ -69,10 +112,11 @@ public class RedBlackNode<T> extends BinaryNode<T> {
         return getBlackHeight(this);
     }
 
-    private int getBlackHeight(BinaryNode<T> node) {
+
+    private int getBlackHeight(RedBlackNode<T> node) {
         int height = 0;
         if (node != null) {
-            if (color == RBColor.BLACK) {
+            if (isBlack == true) {
                 height = 1 + Math.max(getBlackHeight(node.getLeftChild()), getBlackHeight(node.getRightChild()));
             }
         }

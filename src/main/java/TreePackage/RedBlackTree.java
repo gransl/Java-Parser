@@ -1,27 +1,101 @@
 package TreePackage;
 
-public class RedBlackTree<T extends Comparable<? super T>> extends BinarySearchTree{
+import java.util.Iterator;
+
+public class RedBlackTree<T extends Comparable<? super T>> implements SearchTreeInterface<T>{
+    /** root of the RedBlackTree*/
     RedBlackNode<T> root;
 
-
+    /**
+     * Full Constructor
+     * @param rootEntry
+     * @param parent
+     * @param left
+     * @param right
+     */
     public RedBlackTree(T rootEntry, RedBlackNode<T> parent, RedBlackNode<T> left, RedBlackNode<T> right)
     {
         setRootNode(new RedBlackNode<T>(rootEntry, parent, left, right));
-    } // end constructor
+    }
 
+    // --------------------- // --- SEARCH/ADD/DELETE --- // --------------------- //
 
-    protected void setRootNode(RedBlackNode<T> rootNode)
+    /**
+     * Searches for a specific entry in this tree.
+     *
+     * @param anEntry An object to be found.
+     * @return True if the object was found in the tree.
+     */
+    @Override
+    public boolean contains(T anEntry) {
+        return getEntry(anEntry) != null;
+    }
+
+    @Override
+    public T getEntry(T anEntry)
     {
-        root = rootNode;
-    } // end setRootNode
+        return findEntry(getRootNode(), anEntry);
+    } // end getEntry
 
 
-    protected RedBlackNode<T> getRootNode()
+    private T findEntry(RedBlackNode<T> rootNode, T anEntry)
     {
-        return root;
-    } // end getRootNode
+        T result = null;
+
+        if (rootNode != null)
+        {
+            T rootEntry = rootNode.getData();
+
+            if (anEntry.equals(rootEntry))
+                result = rootEntry;
+            else if (anEntry.compareTo(rootEntry) < 0)
+                result = findEntry(rootNode.getLeftChild(), anEntry);
+            else
+                result = findEntry(rootNode.getRightChild(), anEntry);
+        } // end if
+
+        return result;
+    } // end findEntry
 
 
+    /**
+     * Adds a new entry to this tree, if it does not match an existing
+     * object in the tree. Otherwise, replaces the existing object with
+     * the new entry.
+     *
+     * @param anEntry An object to be added to the tree.
+     * @return Either null if anEntry was not in the tree but has been added, or
+     * the existing entry that matched the parameter anEntry
+     * and has been replaced in the tree.
+     */
+    @Override
+    public T add(T anEntry) {
+        if (isEmpty()) {
+            root = new RedBlackNode(anEntry, null, null, null);
+            root.setBlack();
+            return null;
+        }
+        return null;
+    }
+
+
+
+
+    /**
+     * Removes a specific entry from this tree.
+     *
+     * @param anEntry An object to be removed.
+     * @return Either the object that was removed from the tree or
+     * null if no such object exists.
+     */
+    @Override
+    public T remove(T anEntry) {
+        throw new UnsupportedOperationException();
+    }
+    // --------------------- // --- SEARCH/ADD/DELETE END --- // --------------------- //
+
+
+    // ----------------------- // --- ROTATION METHODS --- // ----------------------- //
     private void rotateRight(RedBlackNode node) {
         RedBlackNode parent = node.getParent();
 
@@ -56,11 +130,11 @@ public class RedBlackTree<T extends Comparable<? super T>> extends BinarySearchT
         RedBlackNode rightChild = node.getRightChild();
 
         /* Set the node's right child to be the left child of its current right child.
-        * Since rightChild will soon become the new root of the subtree, it's new left child will need to be the old
-        * subtree root: node. However, rightChild's current leftSubtree still needs to be to its left somewhere.
-        * Since node will be to the left of RightChild after rotation and since everything in rightChild's left subtree
-        * is larger than node (since it was to the right of node to begin with, we can attach rightChild's current
-        * to the be node's right subtree.*/
+         * Since rightChild will soon become the new root of the subtree, it's new left child will need to be the old
+         * subtree root: node. However, rightChild's current leftSubtree still needs to be to its left somewhere.
+         * Since node will be to the left of RightChild after rotation and since everything in rightChild's left subtree
+         * is larger than node (since it was to the right of node to begin with, we can attach rightChild's current
+         * to the be node's right subtree.*/
         node.setRightChild(rightChild.getLeftChild());
 
         // After assigning rightChild's leftSubtree to be node's left subtree, it now has a new parent.
@@ -75,7 +149,7 @@ public class RedBlackTree<T extends Comparable<? super T>> extends BinarySearchT
         node.setParent(rightChild);
 
         //Set the parent of the subtree we just altered to point at the new root and vice versa.
-        replaceParentsChild(parent, node rightChild);
+        replaceParentsChild(parent, node, rightChild);
     }
 
 
@@ -103,10 +177,91 @@ public class RedBlackTree<T extends Comparable<? super T>> extends BinarySearchT
             newChild.setParent(parent);
         }
     }
+    // ----------------------- // --- ROTATION METHODS END --- // ----------------------- //
 
 
+    /**
+     * Creates an iterator that traverses all entries in this tree.
+     *
+     * @return An iterator that provides sequential and ordered access
+     * to the entries in the tree.
+     */
+    @Override
+    public Iterator<T> getInorderIterator() {
+        return null;
+    }
 
 
+    @Override
+    public T getRootData() {
+        return root.getData();
+    }
 
 
+    /**
+     * @param rootNode
+     */
+    private void setRootNode(RedBlackNode<T> rootNode) {
+        root = rootNode;
+    }
+
+
+    /**
+     * @return
+     */
+    private RedBlackNode<T> getRootNode() {
+        return root;
+    }
+
+
+    /**
+     * @return
+     */
+    @Override
+    public int getHeight() {
+        int height = 0;
+        if (root != null) {
+            height = root.getHeight();
+        }
+        return getHeight();
+    }
+
+
+    /**
+     * @return
+     */
+    public int getBlackHeight() {
+        int blackHeight = 0;
+        if (root != null) {
+            blackHeight = root.getBlackHeight();
+        }
+        return getHeight();
+    }
+
+    /**
+     * @return
+     */
+    @Override
+    public int getNumberOfNodes() {
+        int numberOfNodes = 0;
+        if (root != null)
+            numberOfNodes = root.getNumberOfNodes();
+        return numberOfNodes;
+    }
+
+    /**
+     * @return
+     */
+    @Override
+    public boolean isEmpty() {
+        return root == null;
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void clear() {
+        root = null;
+    }
 }
