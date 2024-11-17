@@ -1,4 +1,4 @@
-package Week7_Complete.StackAndQueueInterface;
+package StackAndQueuePackage;
 
 public final class LinkedQueue<T> implements QueueInterface<T>
 {

@@ -1,6 +1,4 @@
-package Week7_Complete.TreePackage.BinarySearchTree;
-
-import Week7_Complete.TreePackage.TreeInterface;
+package TreePackage;
 
 import java.util.Iterator;
 

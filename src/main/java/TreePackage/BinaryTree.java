@@ -1,10 +1,9 @@
-package Week7_Complete.TreePackage;
+package TreePackage;
 
-
-import Week7_Incomplete.StackAndQueueInterface.LinkedQueue;
-import Week7_Incomplete.StackAndQueueInterface.LinkedStack;
-import Week7_Incomplete.StackAndQueueInterface.QueueInterface;
-import Week7_Incomplete.StackAndQueueInterface.StackInterface;
+import StackAndQueuePackage.LinkedQueue;
+import StackAndQueuePackage.LinkedStack;
+import StackAndQueuePackage.QueueInterface;
+import StackAndQueuePackage.StackInterface;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

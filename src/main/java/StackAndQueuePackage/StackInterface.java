@@ -1,4 +1,4 @@
-package Week7_Complete.StackAndQueueInterface;
+package StackAndQueuePackage;
 
 import java.util.EmptyStackException;
 

@@ -1,4 +1,4 @@
-package Week7_Complete.StackAndQueueInterface;
+package StackAndQueuePackage;
 
 /**
    An interface for the ADT queue.   

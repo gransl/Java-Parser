@@ -1,4 +1,4 @@
-package Week7_Complete.TreePackage;
+package TreePackage;
 /**
  A class of runtime exceptions thrown by methods to
  indicate that a tree is empty.

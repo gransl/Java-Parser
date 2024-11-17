@@ -1,4 +1,4 @@
-package Week7_Complete.TreePackage;
+package TreePackage;
 
 public interface TreeInterface<T>
 {
