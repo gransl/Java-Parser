@@ -14,6 +14,8 @@ public class Parser {
         reservedWordsTree = new RedBlackTree<>();
         identifiersTree = new RedBlackTree<>();
         reservedFound = new RedBlackTree<>();
+        initializeReservedWords();
+        getIdentifiers(f);
     }
 
     private void initializeReservedWords(){
