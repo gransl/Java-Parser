@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7b652a0-6191-4211-bc5d-22a801170300" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/TreePackage/BinaryNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TreePackage/BinaryNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TreePackage/RedBlackNodeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TreePackage/RedBlackTreeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AD325_P3_JavaParser.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AD325_P3_JavaParser.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RBColor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackTree.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TreePackage/RedBlackNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TreePackage/RedBlackNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TreePackage/RedBlackTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TreePackage/RedBlackTree.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +25,7 @@
       <list>
         <option value="Class" />
         <option value="Enum" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -34,7 +42,39 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "JUnit.RedBlackNodeTest.executor": "Coverage",
+    "JUnit.RedBlackNodeTest.getData.executor": "Run",
+    "JUnit.RedBlackNodeTest.getHeight.executor": "Run",
+    "JUnit.RedBlackNodeTest.getLeftChild.executor": "Run",
+    "JUnit.RedBlackNodeTest.getNumberOfNodes.executor": "Run",
+    "JUnit.RedBlackNodeTest.getParent.executor": "Run",
+    "JUnit.RedBlackNodeTest.getRightChild.executor": "Run",
+    "JUnit.RedBlackNodeTest.setBlackAndIsBlack.executor": "Run",
+    "JUnit.RedBlackNodeTest.setData.executor": "Run",
+    "JUnit.RedBlackNodeTest.setLeftChild.executor": "Run",
+    "JUnit.RedBlackNodeTest.setParent.executor": "Run",
+    "JUnit.RedBlackNodeTest.setRed.executor": "Run",
+    "JUnit.RedBlackNodeTest.setRightChild.executor": "Run",
+    "JUnit.RedBlackTreeTest.add.executor": "Run",
+    "JUnit.RedBlackTreeTest.addLeftRightBlackAunt.executor": "Coverage",
+    "JUnit.RedBlackTreeTest.addRightRightBlackAunt.executor": "Coverage",
+    "JUnit.RedBlackTreeTest.addWithLeftLeft.executor": "Run",
+    "JUnit.RedBlackTreeTest.addWithLeftLeftBlackAunt.executor": "Coverage",
+    "JUnit.RedBlackTreeTest.addWithRightLeftBlackAunt.executor": "Coverage",
+    "JUnit.RedBlackTreeTest.addWithRightRight.executor": "Run",
+    "JUnit.RedBlackTreeTest.constructor.executor": "Run",
+    "JUnit.RedBlackTreeTest.contains.executor": "Run",
+    "JUnit.RedBlackTreeTest.emptyConstructor.executor": "Run",
+    "JUnit.RedBlackTreeTest.executor": "Coverage",
+    "JUnit.RedBlackTreeTest.getHeight.executor": "Debug",
+    "JUnit.RedBlackTreeTest.partialConstructor.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "true",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "red-black-tree",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/ren/Documents/CS/AD325/AD325_P3_JavaParser",
@@ -55,9 +95,104 @@
       <recent name="$PROJECT_DIR$/src/main/java" />
       <recent name="$PROJECT_DIR$/src/java" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="TreePackage" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.RedBlackTreeTest">
+    <configuration name="RedBlackNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AD325_P3_JavaParser" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TreePackage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TreePackage" />
+      <option name="MAIN_CLASS_NAME" value="TreePackage.RedBlackNodeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedBlackTreeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AD325_P3_JavaParser" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TreePackage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TreePackage" />
+      <option name="MAIN_CLASS_NAME" value="TreePackage.RedBlackTreeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedBlackTreeTest.addLeftRightBlackAunt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AD325_P3_JavaParser" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TreePackage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TreePackage" />
+      <option name="MAIN_CLASS_NAME" value="TreePackage.RedBlackTreeTest" />
+      <option name="METHOD_NAME" value="addLeftRightBlackAunt" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedBlackTreeTest.addRightRightBlackAunt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AD325_P3_JavaParser" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TreePackage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TreePackage" />
+      <option name="MAIN_CLASS_NAME" value="TreePackage.RedBlackTreeTest" />
+      <option name="METHOD_NAME" value="addRightRightBlackAunt" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedBlackTreeTest.getHeight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AD325_P3_JavaParser" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TreePackage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TreePackage" />
+      <option name="MAIN_CLASS_NAME" value="TreePackage.RedBlackTreeTest" />
+      <option name="METHOD_NAME" value="getHeight" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.RedBlackTreeTest" />
+        <item itemvalue="JUnit.RedBlackTreeTest.getHeight" />
+        <item itemvalue="JUnit.RedBlackNodeTest" />
+        <item itemvalue="JUnit.RedBlackTreeTest.addRightRightBlackAunt" />
+        <item itemvalue="JUnit.RedBlackTreeTest.addLeftRightBlackAunt" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -76,11 +211,44 @@
       <option name="presentableId" value="Default" />
       <updated>1728925836223</updated>
       <workItem from="1728925898661" duration="62000" />
-      <workItem from="1731210608240" duration="29585000" />
+      <workItem from="1731210608240" duration="67736000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.StackOverflowError" package="java.lang" />
+          <option name="timeStamp" value="5" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_add.ic" NAME="RedBlackTreeTest.add Coverage Results" MODIFIED="1731898508042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>TreePackage.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addWithLeftLeftBlackAunt.ic" NAME="RedBlackTreeTest.addWithLeftLeftBlackAunt Coverage Results" MODIFIED="1731901206790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>TreePackage.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addWithRightLeftBlackAunt.ic" NAME="RedBlackTreeTest.addWithRightLeftBlackAunt Coverage Results" MODIFIED="1731902776960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>TreePackage.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addRightRightBlackAunt.ic" NAME="RedBlackTreeTest.addRightRightBlackAunt Coverage Results" MODIFIED="1731904266567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>TreePackage.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackNodeTest.ic" NAME="RedBlackNodeTest Coverage Results" MODIFIED="1731905112995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>TreePackage.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addLeftRightBlackAunt.ic" NAME="RedBlackTreeTest.addLeftRightBlackAunt Coverage Results" MODIFIED="1731904024471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>TreePackage.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest.ic" NAME="RedBlackTreeTest Coverage Results" MODIFIED="1731906969589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>TreePackage.*</FILTER>
+    </SUITE>
   </component>
 </project>

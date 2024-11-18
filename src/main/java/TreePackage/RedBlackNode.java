@@ -1,5 +1,9 @@
 package TreePackage;
-//TODO: What do I gain by using inheritance? It feels like I have to redefine the parents, left, and right
+
+/**
+ * Node class to go with RedBlackTree
+ * @param <T> Generic of Type T
+ */
 public class RedBlackNode<T> {
     T data;
     /** reference to parent */
@@ -57,7 +61,7 @@ public class RedBlackNode<T> {
     }
 
     public void setRightChild(RedBlackNode<T> newRight) {
-        parent = newRight;
+        right = newRight;
     }
 
     public void setBlack() {
@@ -68,9 +72,10 @@ public class RedBlackNode<T> {
         isBlack = false;
     }
 
-    public boolean getColor() {
+    public boolean isBlack() {
         return isBlack;
     }
+
     // --------------------- // --- MUTATORS AND ACCESSORS END --- // --------------------- //
 
 
@@ -89,6 +94,7 @@ public class RedBlackNode<T> {
 
 
     /** Computes the height of the subtree rooted at this node.
+     * Height includes root node
      @return  The height of the subtree rooted at this node. */
     public int getHeight()
     {
@@ -96,33 +102,13 @@ public class RedBlackNode<T> {
     } // end getHeight
 
 
-    private int getHeight(RedBlackNode<T> node)
+    public int getHeight(RedBlackNode<T> node)
     {
         int height = 0;
-        if (node != null)
-            height = 1 + Math.max(getHeight(node.getLeftChild()), getHeight(node.getRightChild()));
-        return height;
-    }
-
-    /** Computes the black height of the subtree rooted at this node.
-     *
-     * @return  The height of the subtree rooted at this node.
-     */
-    public int getBlackHeight() {
-        return getBlackHeight(this);
-    }
-
-
-    private int getBlackHeight(RedBlackNode<T> node) {
-        int height = 0;
         if (node != null) {
-            if (isBlack == true) {
-                height = 1 + Math.max(getBlackHeight(node.getLeftChild()), getBlackHeight(node.getRightChild()));
-            }
+            height = 1 + Math.max(getHeight(node.getLeftChild()), getHeight(node.getRightChild()));
         }
-
         return height;
     }
-
 
 }
