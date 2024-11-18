@@ -7,10 +7,13 @@ import java.util.Scanner;
 public class Parser {
     RedBlackTree<String> reservedWordsTree;
     RedBlackTree<String> identifiersTree;
+    RedBlackTree<String> reservedFound;
+
 
     public Parser(File f) throws FileNotFoundException {
         reservedWordsTree = new RedBlackTree<>();
         identifiersTree = new RedBlackTree<>();
+        reservedFound = new RedBlackTree<>();
     }
 
     private void initializeReservedWords(){
@@ -30,7 +33,9 @@ public class Parser {
         //codeSample.useDelimiter("[\n\t\r\f:;<=?@\\]\\[^_`{|}~!\"$%&'()*+/,-.\\\\]");
         while (codeSample.hasNext()) {
             String temp = codeSample.next();
-            if (!reservedWordsTree.contains(temp)) {
+            if (reservedWordsTree.contains(temp)) {
+                reservedFound.add(temp);
+            } else {
                 identifiersTree.add(temp);
             }
         }
