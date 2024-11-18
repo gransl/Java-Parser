@@ -7,39 +7,61 @@ import java.util.Scanner;
 public class Parser {
     RedBlackTree<String> reservedWordsTree;
     RedBlackTree<String> identifiersTree;
-    RedBlackTree<String> reservedFound;
+    RedBlackTree<String> reservedFoundTree;
 
 
     public Parser(File f) throws FileNotFoundException {
         reservedWordsTree = new RedBlackTree<>();
         identifiersTree = new RedBlackTree<>();
-        reservedFound = new RedBlackTree<>();
+        reservedFoundTree = new RedBlackTree<>();
         initializeReservedWords();
         getIdentifiers(f);
     }
 
-    private void initializeReservedWords(){
-        Scanner reservedWordsDoc = new Scanner("reservedWords.txt");
+    private void initializeReservedWords() throws FileNotFoundException {
+        Scanner reservedWordsDoc = new Scanner(new File("src/main/java/reservedWords.txt"));
         while (reservedWordsDoc.hasNext()) {
             reservedWordsTree.add(reservedWordsDoc.next());
         }
     }
 
-//    private void setBalancedBST(File codeFile) throws FileNotFoundException {
-//
-//    }
-
     private void getIdentifiers(File codeFile) throws FileNotFoundException {
         Scanner codeSample = new Scanner(codeFile);
-        codeSample.useDelimiter("[\\\\p{Punct}\\\\s]+");
-        //codeSample.useDelimiter("[\n\t\r\f:;<=?@\\]\\[^_`{|}~!\"$%&'()*+/,-.\\\\]");
+        codeSample.useDelimiter("[:;<\s>=?@\\]\\[^_`{|}~!\"$%&'()*+/,-.\\\\]");
         while (codeSample.hasNext()) {
-            String temp = codeSample.next();
+            String temp = codeSample.next().trim();
             if (reservedWordsTree.contains(temp)) {
-                reservedFound.add(temp);
+                reservedFoundTree.add(temp);
             } else {
-                identifiersTree.add(temp);
+                if (temp.length() > 0) {
+                    identifiersTree.add(temp);
+                }
             }
         }
     }
+
+    protected RedBlackTree<String> getReservedWordsTree() {
+        return reservedWordsTree;
+    }
+
+    protected RedBlackTree<String> getIdentifiersTree() {
+        return identifiersTree;
+    }
+
+    protected RedBlackTree<String> getReservedFoundTree() {
+        return reservedFoundTree;
+    }
+
+    public void printReservedWordsFound() {
+        for (String keyword : reservedFoundTree) {
+            System.out.println(keyword);
+        }
+    }
+
+    public void printIdentifiersFound() {
+        for (String identifier : identifiersTree) {
+            System.out.println(identifier);
+        }
+    }
+
 }

@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
  * Red Black Tree without deletion
  * @param <T> generic of type T
  */
-public class RedBlackTree<T extends Comparable<? super T>> implements SearchTreeInterface<T>{
+public class RedBlackTree<T extends Comparable<? super T>> implements SearchTreeInterface<T>, Iterable<T>{
     /** root of the RedBlackTree*/
     RedBlackNode<T> root;
 
@@ -334,6 +334,19 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
      */
     @Override
     public Iterator<T> getInorderIterator() {
+        return new InorderIterator();
+    }
+
+
+    /**
+     * Creates an iterator that traverses all entries in this tree.
+     * (Identical to InorderIterator, I need this method header to satisfy the requirements of the Iterable
+     * interface, which I would like to use so my trees can use for each loops).
+     *
+     * @return An iterator that provides sequential and ordered access to the entries in the tree.
+     *
+     */
+    public Iterator<T> iterator() {
         return new InorderIterator();
     }
 

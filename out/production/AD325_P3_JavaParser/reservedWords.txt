@@ -1,5 +1,5 @@
 abstract
-assert 
+assert
 boolean
 break
 byte
@@ -13,7 +13,7 @@ default
 do
 double
 else
-enum 
+enum
 extends
 false
 final
@@ -38,7 +38,7 @@ public
 return
 short
 static
-strictfp 
+strictfp
 super
 switch
 synchronized
