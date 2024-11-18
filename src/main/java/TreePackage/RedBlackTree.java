@@ -340,7 +340,10 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
 
     @Override
     public T getRootData() {
-        return root.getData();
+        if (isEmpty())
+            throw new EmptyTreeException();
+        else
+            return root.getData();
     }
 
 
@@ -355,7 +358,7 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
     /**
      * @return
      */
-    public RedBlackNode<T> getRootNode() {
+    protected RedBlackNode<T> getRootNode() {
         return root;
     }
 

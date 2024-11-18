@@ -4,6 +4,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -370,6 +373,24 @@ class RedBlackTreeTest {
 
     @Test
     void getInorderIterator() {
+        Iterator<String> strItr = stringTree.getInorderIterator();
+        assertTrue(strItr.hasNext());
+        assertEquals("b", strItr.next());
+        assertThrows(UnsupportedOperationException.class, ()-> strItr.remove());
+        assertTrue(strItr.hasNext());
+        assertEquals("e", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("h", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("m", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("q", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("w", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("z", strItr.next());
+        assertFalse(strItr.hasNext());
+        assertThrows(NoSuchElementException.class, ()-> strItr.next());
     }
 
     @Test
@@ -400,5 +421,11 @@ class RedBlackTreeTest {
         assertFalse(intTree.isEmpty());
         intTree.clear();
         assertTrue(intTree.isEmpty());
+    }
+
+    @Test
+    void getRootData() {
+        assertThrows(EmptyTreeException.class, ()-> emptyTree.getRootData());
+        assertEquals("h", stringTree.getRootData());
     }
 }

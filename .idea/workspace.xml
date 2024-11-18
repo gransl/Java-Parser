@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7b652a0-6191-4211-bc5d-22a801170300" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/TreePackage/RedBlackNodeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TreePackage/RedBlackTreeTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AD325_P3_JavaParser.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AD325_P3_JavaParser.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RBColor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackTree$InorderIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackTree$InorderIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TreePackage/RedBlackNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TreePackage/RedBlackNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/TreePackage/RedBlackTreeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/TreePackage/RedBlackTreeTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TreePackage/RedBlackTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TreePackage/RedBlackTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TreePackage/RedBlackTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TreePackage/RedBlackTreeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +208,7 @@
       <option name="presentableId" value="Default" />
       <updated>1728925836223</updated>
       <workItem from="1728925898661" duration="62000" />
-      <workItem from="1731210608240" duration="67736000" />
+      <workItem from="1731210608240" duration="70352000" />
     </task>
     <servers />
   </component>
@@ -247,7 +244,7 @@
     <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addLeftRightBlackAunt.ic" NAME="RedBlackTreeTest.addLeftRightBlackAunt Coverage Results" MODIFIED="1731904024471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>TreePackage.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest.ic" NAME="RedBlackTreeTest Coverage Results" MODIFIED="1731906969589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest.ic" NAME="RedBlackTreeTest Coverage Results" MODIFIED="1731912423131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>TreePackage.*</FILTER>
     </SUITE>
   </component>
