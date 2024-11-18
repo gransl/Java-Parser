@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7b652a0-6191-4211-bc5d-22a801170300" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/screenshots/p3_vc_ss_1_red_black_tree.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshots/p3_vc_ss_2_parser.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/TreePackage/RedBlackTreeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/TreePackage/RedBlackTreeTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TreePackage/RedBlackTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TreePackage/RedBlackTreeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reservedWords.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reservedWords.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +62,7 @@
     "JUnit.RedBlackTreeTest.contains.executor": "Run",
     "JUnit.RedBlackTreeTest.emptyConstructor.executor": "Run",
     "JUnit.RedBlackTreeTest.executor": "Profiler#1",
+    "JUnit.RedBlackTreeTest.extraRotationTest.executor": "Coverage",
     "JUnit.RedBlackTreeTest.getHeight.executor": "Debug",
     "JUnit.RedBlackTreeTest.partialConstructor.executor": "Run",
     "Repository.Attach.Annotations": "false",
@@ -211,7 +209,7 @@
       <updated>1728925836223</updated>
       <workItem from="1728925898661" duration="62000" />
       <workItem from="1731210608240" duration="70454000" />
-      <workItem from="1731912885722" duration="4594000" />
+      <workItem from="1731912885722" duration="10186000" />
     </task>
     <servers />
   </component>
@@ -225,6 +223,11 @@
           <properties class="java.lang.StackOverflowError" package="java.lang" />
           <option name="timeStamp" value="5" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/TreePackage/RedBlackTreeTest.java</url>
+          <line>333</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -233,6 +236,9 @@
       <FILTER>TreePackage.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addRightLeftBlackAunt.ic" NAME="RedBlackTreeTest.addRightLeftBlackAunt Coverage Results" MODIFIED="1731916968718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>TreePackage.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_extraRotationTest.ic" NAME="RedBlackTreeTest.extraRotationTest Coverage Results" MODIFIED="1731917556343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>TreePackage.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addWithLeftLeftBlackAunt.ic" NAME="RedBlackTreeTest.addWithLeftLeftBlackAunt Coverage Results" MODIFIED="1731901206790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
