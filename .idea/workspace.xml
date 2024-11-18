@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7b652a0-6191-4211-bc5d-22a801170300" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/screenshots/p3_vc_ss_main_class.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/Parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackTree$InorderIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackTree$InorderIterator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/reservedWords.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/reservedWords.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/TreePackage/RedBlackTreeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/TreePackage/RedBlackTreeTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TreePackage/RedBlackTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TreePackage/RedBlackTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TreePackage/RedBlackTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TreePackage/RedBlackTreeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/ParserTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/ParserTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +19,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -48,6 +39,8 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "true",
+    "JUnit.MainTest.executor": "Debug",
+    "JUnit.MainTest.main.executor": "Coverage",
     "JUnit.ParserTest.executor": "Coverage",
     "JUnit.ParserTest.getIdentifiersTree.executor": "Run",
     "JUnit.ParserTest.getReservedFoundTree.executor": "Run",
@@ -119,10 +112,29 @@
       <recent name="TreePackage" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ParserTest">
+  <component name="RunManager" selected="JUnit.MainTest.main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="AD325_P3_JavaParser" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AD325_P3_JavaParser" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MainTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest.main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AD325_P3_JavaParser" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MainTest" />
+      <option name="METHOD_NAME" value="main" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -132,26 +144,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ParserTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ParserTest.getIdentifiersTree" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AD325_P3_JavaParser" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ParserTest" />
-      <option name="METHOD_NAME" value="getIdentifiersTree" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ParserTest.getReservedWordsTree" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AD325_P3_JavaParser" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ParserTest" />
-      <option name="METHOD_NAME" value="getReservedWordsTree" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -168,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MainTest.main" />
+        <item itemvalue="JUnit.MainTest" />
         <item itemvalue="JUnit.ParserTest" />
         <item itemvalue="JUnit.ParserTest.printReservedWordsFound" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.ParserTest.getIdentifiersTree" />
-        <item itemvalue="JUnit.ParserTest.getReservedWordsTree" />
       </list>
     </recent_temporary>
   </component>
@@ -213,6 +205,15 @@
           <line>332</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Parser.java</url>
+          <line>12</line>
+          <properties class="Parser" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -220,29 +221,30 @@
     <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_add.ic" NAME="RedBlackTreeTest.add Coverage Results" MODIFIED="1731898508042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>TreePackage.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addRightLeftBlackAunt.ic" NAME="RedBlackTreeTest.addRightLeftBlackAunt Coverage Results" MODIFIED="1731916968718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>TreePackage.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_extraRotationTest.ic" NAME="RedBlackTreeTest.extraRotationTest Coverage Results" MODIFIED="1731917556343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>TreePackage.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addWithLeftLeftBlackAunt.ic" NAME="RedBlackTreeTest.addWithLeftLeftBlackAunt Coverage Results" MODIFIED="1731901206790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>TreePackage.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addWithRightLeftBlackAunt.ic" NAME="RedBlackTreeTest.addWithRightLeftBlackAunt Coverage Results" MODIFIED="1731902776960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>TreePackage.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addRightRightBlackAunt.ic" NAME="RedBlackTreeTest.addRightRightBlackAunt Coverage Results" MODIFIED="1731904266567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>TreePackage.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$ParserTest_getIdentifiersTree.ic" NAME="ParserTest.getIdentifiersTree Coverage Results" MODIFIED="1731965204278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackNodeTest.ic" NAME="RedBlackNodeTest Coverage Results" MODIFIED="1731913929776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>TreePackage.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addLeftRightBlackAunt.ic" NAME="RedBlackTreeTest.addLeftRightBlackAunt Coverage Results" MODIFIED="1731915557987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>TreePackage.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$ParserTest.ic" NAME="ParserTest Coverage Results" MODIFIED="1731969317122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$ParserTest.ic" NAME="ParserTest Coverage Results" MODIFIED="1731970288082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addRightLeftBlackAunt.ic" NAME="RedBlackTreeTest.addRightLeftBlackAunt Coverage Results" MODIFIED="1731916968718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>TreePackage.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$MainTest.ic" NAME="MainTest Coverage Results" MODIFIED="1731971665445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addWithLeftLeftBlackAunt.ic" NAME="RedBlackTreeTest.addWithLeftLeftBlackAunt Coverage Results" MODIFIED="1731901206790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>TreePackage.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addWithRightLeftBlackAunt.ic" NAME="RedBlackTreeTest.addWithRightLeftBlackAunt Coverage Results" MODIFIED="1731902776960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>TreePackage.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackNodeTest.ic" NAME="RedBlackNodeTest Coverage Results" MODIFIED="1731913929776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>TreePackage.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest.ic" NAME="RedBlackTreeTest Coverage Results" MODIFIED="1731916380324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>TreePackage.*</FILTER>
     </SUITE>

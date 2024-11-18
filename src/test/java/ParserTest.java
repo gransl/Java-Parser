@@ -22,9 +22,6 @@ class ParserTest {
         testParser = new Parser(new File("src/test/java/TestClass.java"));
     }
 
-    @AfterEach
-    void tearDown() {
-    }
 
     @Test
     void getReservedWordsTree() throws FileNotFoundException {
