@@ -6,6 +6,10 @@ import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * I learned this PrintStream method for testing print statements from this source:
+ * https://www.baeldung.com/java-testing-system-out-println
+ */
 class PalindromeTest {
 
     @Test

@@ -1,6 +1,8 @@
 package TreePackage;
 
+import StackAndQueuePackage.LinkedQueue;
 import StackAndQueuePackage.LinkedStack;
+import StackAndQueuePackage.QueueInterface;
 import StackAndQueuePackage.StackInterface;
 
 import java.util.Iterator;
@@ -14,14 +16,16 @@ import java.util.NoSuchElementException;
  * methods being fully compatible with this class. Since I felt short on time, I decided to make this its own class.
  * I wanted to recognize that this class did not have to be built from scratch completely, though. There are several
  * methods that work on this tree as well as any other binary tree. Aside from the add method, and the many methods that
- * support that method, nearly all other methods are borrowed from BinaryTree, with the update that they use the
- * RedBlackNode node. 
+ * support the add method, nearly all other methods are borrowed from BinaryTree.java, with the update that they use the
+ * RedBlackNode node.
+ *
  * 
  * I used this guide to help me build this tree: https://www.happycoders.eu/algorithms/red-black-tree-java/
  * (I really enjoyed making this tree!)
  * @param <T> generic of type T
  */
-public class RedBlackTree<T extends Comparable<? super T>> implements SearchTreeInterface<T>, Iterable<T>{
+public class RedBlackTree<T extends Comparable<? super T>> implements SearchTreeInterface<T>, TreeIteratorInterface<T>,
+        Iterable<T> {
     /** root of the RedBlackTree */
     private RedBlackNode<T> root;
 
@@ -50,6 +54,11 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
 
     /**
      * {@inheritDoc}
+     * Time Complexity: O(log n) (halving the tree everytime we call the search again)
+     * Red-Black Trees can guarantee O(log n) time because their properties maintain a balance rule where no single
+     * path from node to root can be twice as long as the shortest path. If we imagine a perfect tree of n nodes, the
+     * shortest path in such a tree would be log(n), therefore the longest path must be no longer than 2*log(n), which
+     * is an O(log n) time complexity.
      */
     @Override
     public boolean contains(T anEntry) {
@@ -59,6 +68,7 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
 
     /**
      * {@inheritDoc}
+     * Time Complexity: O(log n) (same reason as contains)
      */
     @Override
     public T getEntry(T anEntry) {
@@ -94,6 +104,14 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
 
     /**
      * {@inheritDoc}
+     *
+     * Time Complexity: O(log n)
+     * When we add an entry, we need to do search similar to the contains method to find where it goes in the
+     * tree, which is an O(log n) operation. Then adjustments to the tree to rebalance involve either changing the
+     * color of nodes recursively up the tree, which are O(1) operations in O(logn) time maximu, or at some point along
+     * the way of recoloring up the tree, we may need to stop and do a rotation and a recolor. This rotation also breaks
+     * the loop, and the rotation itself is also comprised of only a few O(1) operations. Therefore, add is a O(log n)
+     * time complexity operation.
      */
     @Override
     public T add(T anEntry) {
@@ -381,8 +399,31 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
         }
     }
     // ----------------------- // --- END ROTATION METHODS --- // ----------------------- //
+
     // ------------------- // --- END HELPER FUNCTIONS FOR ADD --- // ------------------- //
 
+    /**
+     * Creates an iterator that traverses all entries using a preorder traversal.
+     * Preorder traversal visits parents before children.
+     *
+     * @return  an iterator with a preorder iteration
+     *
+     */
+    @Override
+    public Iterator<T> getPreorderIterator() {
+        return new PreorderIterator();
+    }
+
+    /**
+     * Creates an iterator that traverses all entries using a postorder traversal.
+     * Postorder traversal visits children before parents
+     *
+     * @return  an iterator with a level-order iteration
+     */
+    @Override
+    public Iterator<T> getPostorderIterator() {
+        return new PostorderIterator();
+    }
 
     /**
      * {@inheritDoc}
@@ -390,6 +431,18 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
     @Override
     public Iterator<T> getInorderIterator() {
         return new InorderIterator();
+    }
+
+
+    /**
+     * Creates an iterator that traverses all entries using a level order traversal.
+     * Level order traversal visits all nodes on a level before going to the next.
+     *
+     * @return  an iterator with a level-order iteration
+     */
+    @Override
+    public Iterator<T> getLevelOrderIterator() {
+        return new LevelOrderIterator();
     }
 
 
@@ -539,4 +592,244 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
             throw new UnsupportedOperationException();
         }
     } // end InorderIterator
+
+
+    /**
+     * Creates an Iterator that uses a preorder traversal
+     */
+    private class PreorderIterator implements Iterator<T> {
+        /** Holds the nodes that we do not need to pop yet as we traverse the tree */
+        private StackInterface<RedBlackNode<T>> nodeStack;
+        // note! We do not need a variable to keep track of the current Node! More on this below!
+
+        /** Constructor */
+        public PreorderIterator()
+        {
+            nodeStack = new LinkedStack<>();
+            if (root != null)
+                nodeStack.push(root);
+        } // end default constructor
+
+        /**
+         * Detects if there is another node in the iteration.
+         * @return true if there is another node in the iteration, false otherwise
+         */
+        public boolean hasNext() {
+            return !nodeStack.isEmpty();
+        } // end hasNext
+
+        /**
+         * Returns the next node in the iteration.
+         *
+         * @return the next node in the iteration
+         * @throws NoSuchElementException if there are no more nodes left in the iteration
+         */
+        public T next() {
+            RedBlackNode<T> nextNode;
+
+            if (hasNext()) {
+                // This is why we don't need a variable to keep track of the current node!
+                // We pop the nodes almost immediately because in a preorder traversal we return a node
+                // as soon as we visit it.
+                nextNode = nodeStack.pop();
+                RedBlackNode<T> leftChild = nextNode.getLeftChild();
+                RedBlackNode<T> rightChild = nextNode.getRightChild();
+
+                // This is the reason we need the stack at all!
+                // Push into stack in reverse order of recursive calls
+                // We need to pop children left children before right children so right children.
+                // This means right children need to go on the stack first.
+                if (rightChild != null)
+                    nodeStack.push(rightChild);
+
+                if (leftChild != null)
+                    nodeStack.push(leftChild);
+            }
+            else {
+                throw new NoSuchElementException();
+            }
+
+            return nextNode.getData();
+        } // end next
+
+
+        /**
+         * Remove method not supported for this tree.
+         */
+        public void remove()
+        {
+            throw new UnsupportedOperationException();
+        } // end remove
+    } // end PreorderIterator
+
+    /**
+     * Creates an Iterator that uses a postorder traversal
+     */
+    private class PostorderIterator implements Iterator<T> {
+        /** Holds the nodes that we do not need to pop yet as we traverse the tree */
+        private StackInterface<RedBlackNode<T>> nodeStack;
+        /** The current node in the iteration. */
+        private RedBlackNode<T> currentNode;
+
+
+        /** Constructor */
+        public PostorderIterator()
+        {
+            nodeStack = new LinkedStack<>();
+            currentNode = root;
+        } // end default constructor
+
+
+        /**
+         * Detects if there is another node in the iteration.
+         * @return true if there is another node in the iteration, false otherwise
+         */
+        public boolean hasNext()
+        {
+            return !nodeStack.isEmpty() || (currentNode != null);
+        } // end hasNext
+
+
+        /**
+         * Returns the next node in the iteration.
+         *
+         * @return the next node in the iteration
+         * @throws NoSuchElementException if there are no more nodes left in the iteration
+         */
+        public T next()
+        {
+            RedBlackNode<T> leftChild, rightChild, nextNode = null;
+
+            // Find leftmost leaf
+            // Postorder is left-right-root, we visit children before parents, so we need to stack up all the nodes
+            // we find until we find the leftmost leaf, then we go to the right child, and add it to the stack if
+            // its a leaf, or else traverse down that subtree in a similar fashion as before.
+            while (currentNode != null)
+            {
+                nodeStack.push(currentNode);
+                leftChild = currentNode.getLeftChild();
+                if (leftChild == null)
+                    currentNode = currentNode.getRightChild();
+                else
+                    currentNode = leftChild;
+            } // end while
+
+            // Stack is not empty either because we just pushed a node, or
+            // it wasn't empty initially since hasNext() is true.
+            // But Iterator specifies an exception for next() in case
+            // hasNext() is false.
+
+            if (!nodeStack.isEmpty())
+            {
+                // if we have exited the method for, we are at the bottom most leaf for this subtree
+                nextNode = nodeStack.pop();
+                // nextNode != null since stack was not empty before pop
+
+                RedBlackNode<T> parent = null;
+                // pop this bottom most leaf, then check if it has a right leaf, we set current node to null
+                // if it doesn't, so it skips the while loop above next time and just pops another node
+                // if there isn't a right child, it's time to head back up the tree.
+                if (!nodeStack.isEmpty())
+                {
+                    parent = nodeStack.peek();
+                    if (nextNode == parent.getLeftChild())
+                        currentNode = parent.getRightChild();
+                    else
+                        currentNode = null;
+                }
+                else
+                    currentNode = null;
+            }
+            else
+            {
+                throw new NoSuchElementException();
+            } // end if
+
+            return nextNode.getData();
+        } // end next
+
+
+        /**
+         * Remove method not supported for this tree.
+         */
+        public void remove()
+        {
+            throw new UnsupportedOperationException();
+        } // end remove
+    } // end PostorderIterator
+
+
+    /**
+     * Creates an Iterator that uses a level-order traversal
+     */
+    private class LevelOrderIterator implements Iterator<T> {
+        /** Holds the nodes that we do not need to pop yet as we traverse the tree
+         * Because level-order traversal works a lot differently than the other traversals, it requires
+         * a queue rather than a stack. (Since it moves horizontally rather than veritcally).*/
+        private QueueInterface<RedBlackNode<T>> nodeQueue;
+
+        /** constructor */
+        public LevelOrderIterator()
+        {
+            nodeQueue = new LinkedQueue<>();
+            if (root != null)
+                nodeQueue.enqueue(root); // if it has a node, put the first one in the queue
+        } // end default constructor
+
+        /**
+         * Detects if there is another node in the iteration.
+         * @return true if there is another node in the iteration, false otherwise
+         */
+        public boolean hasNext()
+        {
+            return !nodeQueue.isEmpty();
+        } // end hasNext
+
+
+        /**
+         * Returns the next node in the iteration.
+         * (This method is simple and satisfying!)
+         *
+         * @return the next node in the iteration
+         * @throws NoSuchElementException if there are no more nodes left in the iteration
+         */
+        public T next() {
+            RedBlackNode<T> nextNode;
+
+            // We continue to do this as long as we still have nodes in our stack!
+            if (hasNext()) {
+                //Remember: if our tree isn't empty, our root gets enqueued in the constructor.
+                //So if we've made it here, there will always be something to dequeue.
+                nextNode = nodeQueue.dequeue();
+
+                //for a level order traversal, these are the next nodes we want to show anyway, since the nodes
+                //on the next level, since we do left before right, there are always the left most nodes on a level
+                //we haven't added to a queue yet.
+                RedBlackNode<T> leftChild = nextNode.getLeftChild();
+                RedBlackNode<T> rightChild = nextNode.getRightChild();
+
+                // Add to queue in order of recursive calls
+                // When we get to the leaves nothing gets added to the queue, representing being on the final
+                // level for that subtree
+                if (leftChild != null)
+                    nodeQueue.enqueue(leftChild);
+
+                if (rightChild != null)
+                    nodeQueue.enqueue(rightChild);
+            } else {
+                throw new NoSuchElementException();
+            }
+
+            return nextNode.getData();
+        } // end next
+
+
+        /**
+         * Remove method not supported for this tree.
+         */
+        public void remove()
+        {
+            throw new UnsupportedOperationException();
+        } // end remove
+    }
 }

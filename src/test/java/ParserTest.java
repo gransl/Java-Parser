@@ -13,6 +13,10 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 
+/**
+ * I learned this PrintStream method for testing print statements from this source:
+ * https://www.baeldung.com/java-testing-system-out-println
+ */
 class ParserTest {
     static Parser testParser;
 

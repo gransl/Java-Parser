@@ -490,4 +490,97 @@ class RedBlackTreeTest {
         assertThrows(EmptyTreeException.class, ()-> emptyTree.getRootData());
         assertEquals("h", stringTree.getRootData());
     }
+
+    @Test
+    void getPreorderIterator() {
+        Iterator<String> strItr = stringTree.getPreorderIterator();
+        assertTrue(strItr.hasNext());
+        assertEquals("h", strItr.next());
+        assertThrows(UnsupportedOperationException.class, ()-> strItr.remove());
+        assertTrue(strItr.hasNext());
+        assertEquals("b", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("e", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("q", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("m", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("w", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("z", strItr.next());
+        assertFalse(strItr.hasNext());
+        assertThrows(NoSuchElementException.class, ()-> strItr.next());
+    }
+
+    @Test
+    void getPostorderIterator() {
+        Iterator<String> strItr = stringTree.getPostorderIterator();
+        assertTrue(strItr.hasNext());
+        assertEquals("e", strItr.next());
+        assertThrows(UnsupportedOperationException.class, ()-> strItr.remove());
+        assertTrue(strItr.hasNext());
+        assertEquals("b", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("m", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("z", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("w", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("q", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("h", strItr.next());
+        assertFalse(strItr.hasNext());
+        assertThrows(NoSuchElementException.class, ()-> strItr.next());
+    }
+
+    @Test
+    void getLevelOrderIterator() {
+        Iterator<String> strItr = stringTree.getLevelOrderIterator();
+        assertTrue(strItr.hasNext());
+        assertEquals("h", strItr.next());
+        assertThrows(UnsupportedOperationException.class, ()-> strItr.remove());
+        assertTrue(strItr.hasNext());
+        assertEquals("b", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("q", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("e", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("m", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("w", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("z", strItr.next());
+        assertFalse(strItr.hasNext());
+        assertThrows(NoSuchElementException.class, ()-> strItr.next());
+    }
+
+    @Test
+    void iterator() {
+        Iterator<String> strItr = stringTree.iterator();
+        assertTrue(strItr.hasNext());
+        assertEquals("b", strItr.next());
+        assertThrows(UnsupportedOperationException.class, ()-> strItr.remove());
+        assertTrue(strItr.hasNext());
+        assertEquals("e", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("h", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("m", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("q", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("w", strItr.next());
+        assertTrue(strItr.hasNext());
+        assertEquals("z", strItr.next());
+        assertFalse(strItr.hasNext());
+        assertThrows(NoSuchElementException.class, ()-> strItr.next());
+    }
+
+    @Test
+    void getRootNode() {
+        assertEquals("h", stringTree.getRootNode().getData());
+    }
 }

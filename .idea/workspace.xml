@@ -5,16 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7b652a0-6191-4211-bc5d-22a801170300" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/StackAndQueuePackage/EmptyQueueException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/StackAndQueuePackage/LinkedQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/StackAndQueuePackage/QueueInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/Parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackNode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackTree$InorderIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackTree$InorderIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AD325_P3_JavaParser/TreePackage/RedBlackTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/TreePackage/RedBlackNodeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/TreePackage/RedBlackNodeTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TreePackage/RedBlackNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TreePackage/RedBlackNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/MainTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/MainTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/PalindromeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/PalindromeTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/ParserTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/ParserTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/TreePackage/RedBlackTreeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/TreePackage/RedBlackTreeTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TreePackage/BinaryTreeInterface.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TreePackage/RedBlackTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TreePackage/RedBlackTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TreePackage/RedBlackNodeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TreePackage/RedBlackNodeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PalindromeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PalindromeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TreePackage/RedBlackTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TreePackage/RedBlackTreeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uml_diagram/Project3 _ Java Parser.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/uml_diagram/Project3 _ Java Parser.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +36,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -86,6 +95,10 @@
     "JUnit.RedBlackTreeTest.executor": "Profiler#1",
     "JUnit.RedBlackTreeTest.extraRotationTest.executor": "Coverage",
     "JUnit.RedBlackTreeTest.getHeight.executor": "Debug",
+    "JUnit.RedBlackTreeTest.getLevelOrderIterator.executor": "Run",
+    "JUnit.RedBlackTreeTest.getPostorderIterator.executor": "Run",
+    "JUnit.RedBlackTreeTest.getPreorderIterator.executor": "Run",
+    "JUnit.RedBlackTreeTest.getRootNode.executor": "Run",
     "JUnit.RedBlackTreeTest.partialConstructor.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "true",
@@ -94,7 +107,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "new-final-touches",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "/Users/ren/Documents/CS/AD325/AD325_P3_JavaParser/src/main/java",
     "last_opened_file_path": "/Users/ren/Documents/CS/AD325/AD325_P3_JavaParser",
@@ -114,6 +127,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/uml_diagram" />
       <recent name="$PROJECT_DIR$/src/main/java" />
       <recent name="$PROJECT_DIR$/src/main/java/Parser" />
       <recent name="$PROJECT_DIR$/screenshots" />
@@ -133,13 +147,6 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.All in AD325_P3_JavaParser">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="AD325_P3_JavaParser" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="All in AD325_P3_JavaParser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AD325_P3_JavaParser" />
       <option name="PACKAGE_NAME" value="" />
@@ -148,38 +155,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AD325_P3_JavaParser" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="TreePackage.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ParserTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ParserTest.getReservedWordsTree" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AD325_P3_JavaParser" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="TreePackage.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ParserTest" />
-      <option name="METHOD_NAME" value="getReservedWordsTree" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RedBlackNodeTest.setParent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RedBlackTreeTest.getLevelOrderIterator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AD325_P3_JavaParser" />
       <extension name="coverage">
         <pattern>
@@ -188,8 +164,56 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="TreePackage" />
-      <option name="MAIN_CLASS_NAME" value="TreePackage.RedBlackNodeTest" />
-      <option name="METHOD_NAME" value="setParent" />
+      <option name="MAIN_CLASS_NAME" value="TreePackage.RedBlackTreeTest" />
+      <option name="METHOD_NAME" value="getLevelOrderIterator" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedBlackTreeTest.getPostorderIterator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AD325_P3_JavaParser" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TreePackage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TreePackage" />
+      <option name="MAIN_CLASS_NAME" value="TreePackage.RedBlackTreeTest" />
+      <option name="METHOD_NAME" value="getPostorderIterator" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedBlackTreeTest.getPreorderIterator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AD325_P3_JavaParser" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TreePackage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TreePackage" />
+      <option name="MAIN_CLASS_NAME" value="TreePackage.RedBlackTreeTest" />
+      <option name="METHOD_NAME" value="getPreorderIterator" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedBlackTreeTest.getRootNode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AD325_P3_JavaParser" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TreePackage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TreePackage" />
+      <option name="MAIN_CLASS_NAME" value="TreePackage.RedBlackTreeTest" />
+      <option name="METHOD_NAME" value="getRootNode" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -198,10 +222,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in AD325_P3_JavaParser" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.RedBlackNodeTest.setParent" />
-        <item itemvalue="JUnit.ParserTest" />
-        <item itemvalue="JUnit.ParserTest.getReservedWordsTree" />
+        <item itemvalue="JUnit.RedBlackTreeTest.getRootNode" />
+        <item itemvalue="JUnit.RedBlackTreeTest.getLevelOrderIterator" />
+        <item itemvalue="JUnit.RedBlackTreeTest.getPostorderIterator" />
+        <item itemvalue="JUnit.RedBlackTreeTest.getPreorderIterator" />
       </list>
     </recent_temporary>
   </component>
@@ -225,7 +249,7 @@
       <workItem from="1731210608240" duration="70454000" />
       <workItem from="1731912885722" duration="10186000" />
       <workItem from="1731978561622" duration="1938000" />
-      <workItem from="1731980568836" duration="8337000" />
+      <workItem from="1731980568836" duration="18278000" />
     </task>
     <servers />
   </component>
@@ -239,11 +263,6 @@
           <properties class="java.lang.StackOverflowError" package="java.lang" />
           <option name="timeStamp" value="5" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/TreePackage/RedBlackTreeTest.java</url>
-          <line>332</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -290,6 +309,6 @@
     <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest.ic" NAME="RedBlackTreeTest Coverage Results" MODIFIED="1731916380324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>TreePackage.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$All_in_AD325_P3_JavaParser.ic" NAME="All in AD325_P3_JavaParser Coverage Results" MODIFIED="1731988855179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$All_in_AD325_P3_JavaParser.ic" NAME="All in AD325_P3_JavaParser Coverage Results" MODIFIED="1732000852865" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
