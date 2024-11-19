@@ -5,15 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7b652a0-6191-4211-bc5d-22a801170300" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/PalindromeTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/ParserTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/AD325_P3_JavaParser/ParserTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TreePackage/BinaryNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TreePackage/BinarySearchTree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TreePackage/BinaryTree.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="1" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -39,8 +43,11 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "true",
+    "JUnit.All in AD325_P3_JavaParser.executor": "Coverage",
     "JUnit.MainTest.executor": "Debug",
     "JUnit.MainTest.main.executor": "Coverage",
+    "JUnit.PalindromeTest.executor": "Coverage",
+    "JUnit.PalindromeTest.isPalindrome.executor": "Coverage",
     "JUnit.ParserTest.executor": "Coverage",
     "JUnit.ParserTest.getIdentifiersTree.executor": "Run",
     "JUnit.ParserTest.getReservedFoundTree.executor": "Run",
@@ -112,19 +119,11 @@
       <recent name="TreePackage" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MainTest.main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="AD325_P3_JavaParser" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in AD325_P3_JavaParser">
+    <configuration name="All in AD325_P3_JavaParser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AD325_P3_JavaParser" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MainTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -139,32 +138,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PalindromeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AD325_P3_JavaParser" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ParserTest" />
+      <option name="MAIN_CLASS_NAME" value="PalindromeTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParserTest.printReservedWordsFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PalindromeTest.isPalindrome" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AD325_P3_JavaParser" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ParserTest" />
-      <option name="METHOD_NAME" value="printReservedWordsFound" />
+      <option name="MAIN_CLASS_NAME" value="PalindromeTest" />
+      <option name="METHOD_NAME" value="isPalindrome" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Python tests in test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="AD325_P3_JavaParser" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/src/test&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in AD325_P3_JavaParser" />
+        <item itemvalue="Python tests.Python tests in test" />
+        <item itemvalue="JUnit.PalindromeTest" />
+        <item itemvalue="JUnit.PalindromeTest.isPalindrome" />
         <item itemvalue="JUnit.MainTest.main" />
-        <item itemvalue="JUnit.MainTest" />
-        <item itemvalue="JUnit.ParserTest" />
-        <item itemvalue="JUnit.ParserTest.printReservedWordsFound" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -221,9 +236,11 @@
     <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_add.ic" NAME="RedBlackTreeTest.add Coverage Results" MODIFIED="1731898508042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>TreePackage.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$PalindromeTest_isPalindrome.ic" NAME="PalindromeTest.isPalindrome Coverage Results" MODIFIED="1731973522291" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_extraRotationTest.ic" NAME="RedBlackTreeTest.extraRotationTest Coverage Results" MODIFIED="1731917556343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>TreePackage.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$PalindromeTest.ic" NAME="PalindromeTest Coverage Results" MODIFIED="1731973821995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addRightRightBlackAunt.ic" NAME="RedBlackTreeTest.addRightRightBlackAunt Coverage Results" MODIFIED="1731904266567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>TreePackage.*</FILTER>
     </SUITE>
@@ -232,6 +249,7 @@
       <FILTER>TreePackage.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$ParserTest.ic" NAME="ParserTest Coverage Results" MODIFIED="1731970288082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$MainTest_main.ic" NAME="MainTest.main Coverage Results" MODIFIED="1731972438429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest_addRightLeftBlackAunt.ic" NAME="RedBlackTreeTest.addRightLeftBlackAunt Coverage Results" MODIFIED="1731916968718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>TreePackage.*</FILTER>
     </SUITE>
@@ -248,5 +266,6 @@
     <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$RedBlackTreeTest.ic" NAME="RedBlackTreeTest Coverage Results" MODIFIED="1731916380324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>TreePackage.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/AD325_P3_JavaParser$All_in_AD325_P3_JavaParser.ic" NAME="All in AD325_P3_JavaParser Coverage Results" MODIFIED="1731973970781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
