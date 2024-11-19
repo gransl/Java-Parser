@@ -12,14 +12,14 @@ package TreePackage;
  */
 class RedBlackNode<T> {
     /** data to store in node */
-    T data;
+    private T data;
     /** reference to parent */
     private RedBlackNode<T> parent;
     /** reference to left node */
     private RedBlackNode<T> left;
     /** reference to right node */
     private RedBlackNode<T> right;
-    /** to color nodes red or black*/
+    /** to color nodes red or black */
     private boolean isBlack;
 
 
@@ -38,7 +38,9 @@ class RedBlackNode<T> {
         isBlack = false;
     }
 
+
     // --------------------- // --- MUTATORS AND ACCESSORS --- // --------------------- //
+
     /**
      * returns data stored in node
      *
@@ -48,6 +50,7 @@ class RedBlackNode<T> {
         return data;
     }
 
+
     /**
      * sets a new data value in the node
      * @param newData data to store in node
@@ -55,6 +58,7 @@ class RedBlackNode<T> {
     public void setData(T newData) {
         data = newData;
     }
+
 
     /**
      * Returns parent of this node.
@@ -64,6 +68,7 @@ class RedBlackNode<T> {
             return parent;
     }
 
+
     /**
      * Sets a new parent for this node
      * @param newParent node that will be new parent of this node
@@ -71,6 +76,7 @@ class RedBlackNode<T> {
     public void setParent(RedBlackNode<T> newParent) {
         parent = newParent;
     }
+
 
     /**
      * Returns left child of this node.
@@ -80,6 +86,7 @@ class RedBlackNode<T> {
         return left;
     }
 
+
     /**
      * Sets a new left child for this node.
      * @param newLeft node that will be new left child of this node
@@ -87,6 +94,7 @@ class RedBlackNode<T> {
     public void setLeftChild(RedBlackNode<T> newLeft) {
         left = newLeft;
     }
+
 
     /**
      * Returns right child of this node.
@@ -96,6 +104,7 @@ class RedBlackNode<T> {
         return right;
     }
 
+
     /**
      * Sets a new right child for this node.
      * @param newRight node that will be new right child of this node.
@@ -104,12 +113,14 @@ class RedBlackNode<T> {
         right = newRight;
     }
 
+
     /**
      * sets this node's color to black
      */
     public void setBlack() {
         isBlack = true;
     }
+
 
     /**
      * sets this node's color to red
@@ -118,6 +129,7 @@ class RedBlackNode<T> {
         isBlack = false;
     }
 
+
     /**
      * Determines if a node is black, if it is not, it must be red.
      * @return true if node is black, false if node is red
@@ -125,7 +137,6 @@ class RedBlackNode<T> {
     public boolean isBlack() {
         return isBlack;
     }
-
     // --------------------- // --- MUTATORS AND ACCESSORS END --- // --------------------- //
 
 
@@ -169,5 +180,4 @@ class RedBlackNode<T> {
         }
         return height;
     }
-
 }

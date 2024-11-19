@@ -16,21 +16,21 @@ public class Parser {
     RedBlackTree<String> reservedWordsTree;
     /** tree that holds all the user-identified words found in the file, no duplicates*/
     RedBlackTree<String> identifiersTree;
-    /** tree that holds all of the reserved words found in the file, no duplicates*/
+    /** tree that holds all the reserved words found in the file, no duplicates*/
     RedBlackTree<String> reservedFoundTree;
 
 
     /**
      * Constructor
-     * @param f a file, preferably Java code,
+     * @param codeFile a file, preferably Java code,
      * @throws FileNotFoundException if provided file cannot be found.
      */
-    public Parser(File f) throws FileNotFoundException {
+    public Parser(File codeFile) throws FileNotFoundException {
         reservedWordsTree = new RedBlackTree<>();
         identifiersTree = new RedBlackTree<>();
         reservedFoundTree = new RedBlackTree<>();
         initializeReservedWords();
-        getIdentifiers(f);
+        getIdentifiers(codeFile);
     }
 
     /**

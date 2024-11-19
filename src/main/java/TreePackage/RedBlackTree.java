@@ -22,8 +22,8 @@ import java.util.NoSuchElementException;
  * @param <T> generic of type T
  */
 public class RedBlackTree<T extends Comparable<? super T>> implements SearchTreeInterface<T>, Iterable<T>{
-    /** root of the RedBlackTree*/
-    RedBlackNode<T> root;
+    /** root of the RedBlackTree */
+    private RedBlackNode<T> root;
 
 
     /**
@@ -41,7 +41,7 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
      * @param rootData information to be stored in the initial root of the tree
      */
     public RedBlackTree(T rootData) {
-        setRootNode(new RedBlackNode<T>(rootData, null, null, null));
+        root = new RedBlackNode<T>(rootData, null, null, null);
         root.setBlack();
     }
 
@@ -55,6 +55,7 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
     public boolean contains(T anEntry) {
         return getEntry(anEntry) != null;
     }
+
 
     /**
      * {@inheritDoc}
@@ -151,6 +152,7 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
         return null; // if we get here, a new entry has been added
     }
 
+
     /**
      * {@inheritDoc}
      */
@@ -158,11 +160,11 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
     public T remove(T anEntry) {
         throw new UnsupportedOperationException();
     }
-
     // --------------------- // --- SEARCH/ADD/DELETE END --- // --------------------- //
 
 
     // -------------------- // --- HELPER FUNCTIONS FOR ADD --- // -------------------- //
+
     /**
      * private helper function for add() for code clarity
      *
@@ -261,6 +263,7 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
         }
     }
 
+
     /**
      * private helper function of fixRedBlackPropertiesAfterAdd.
      * The beauty of Red-Black Trees is that they figure out height balancing not through recalculating the height
@@ -283,9 +286,11 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
     }
 
 
-
     // ----------------------- // --- ROTATION METHODS --- // ----------------------- //
-    /** Corrects an imbalance on the left side of a left subtree.
+
+    /**
+     * Corrects an imbalance on the left side of a left subtree.
+     *
      * @param node node that we need to rotate to fix the imbalance
      */
     private void rotateRight(RedBlackNode<T> node) {
@@ -314,7 +319,10 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
         replaceParentsChild(parent, node, leftChild);
     }
 
-    /** Corrects an imbalance on the right side of a right subtree.
+
+    /**
+     * Corrects an imbalance on the right side of a right subtree.
+     *
      * @param node node that we need to rotate to fix the imbalance
      */
     private void rotateLeft(RedBlackNode<T> node) {
@@ -350,6 +358,7 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
     /**
      * This method will make sure the parent for a subtree is correctly pointing at its new root node and vice versa
      * after a rotation has been performed.
+     *
      * @param parent of the subtree
      * @param oldChild the old root of the subtree, which is the old child of the parent
      * @param newChild the new root of the subtree, which is the new child of the parent
@@ -396,8 +405,10 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
         return new InorderIterator();
     }
 
+
     /**
-     * {@inheritDoc}
+     * Retrieves the data stored in the root node.
+     * @return data stored in root node
      */
     @Override
     public T getRootData() {
@@ -405,16 +416,6 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
             throw new EmptyTreeException();
         else
             return root.getData();
-    }
-
-
-    /**
-     * private function that allows methods to set the root node.
-     * Only available to class, do not want a user to be able to set the root.
-     * @param rootNode node to become the root.
-     */
-    private void setRootNode(RedBlackNode<T> rootNode) {
-        root = rootNode;
     }
 
 
@@ -429,7 +430,8 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
 
 
     /**
-     * {@inheritDoc}
+     * Returns the height of the tree (including root)
+     * @return height of the tree (including root)
      */
     @Override
     public int getHeight() {
@@ -442,7 +444,8 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
 
 
     /**
-     * {@inheritDoc}
+     * Returns the number of nodes in the tree
+     * @return number of nodes in the tree
      */
     @Override
     public int getNumberOfNodes() {
@@ -454,7 +457,8 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
 
 
     /**
-     * {@inheritDoc}
+     * Detects whether the tree is empty (contains no nodes)
+     * @return true if tree is empty, false otherwise
      */
     @Override
     public boolean isEmpty() {
@@ -463,7 +467,7 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
 
 
     /**
-     * {@inheritDoc}
+     * clears all entries in the tree
      */
     @Override
     public void clear() {

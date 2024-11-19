@@ -107,6 +107,8 @@ class RedBlackNodeTest {
         assertFalse(testNode1.isBlack());
         testNode1.setBlack();
         assertTrue(testNode1.isBlack());
+        testNode1.setBlack();
+        assertTrue(testNode1.isBlack());
     }
 
 
@@ -117,6 +119,8 @@ class RedBlackNodeTest {
         assertFalse(testNode1.isBlack());
         testNode1.setBlack();
         assertTrue(testNode1.isBlack());
+        testNode1.setRed();
+        assertFalse(testNode1.isBlack());
         testNode1.setRed();
         assertFalse(testNode1.isBlack());
     }
