@@ -35,23 +35,6 @@ public final class LinkedStack<T> implements StackInterface<T>
 	   return top;
 	} // end pop
 
-/*
-// Question 1, Chapter 6: Does not call peek 
-	public T pop()
-	{
-      if (isEmpty())
-         throw new EmptyStackException();
-      else
-		{
-         assert (topNode != null);
-			top = topNode.getData();
-			topNode = topNode.getNextNode();
-		} // end if
-		
-		return top;
-	} // end pop
-*/		
-
 	public boolean isEmpty()
 	{
 		return topNode == null;

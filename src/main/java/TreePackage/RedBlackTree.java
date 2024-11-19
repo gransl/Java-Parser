@@ -7,7 +7,18 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * Red Black Tree without deletion
+ * Red Black Tree without Remove.
+ *
+ * I decided to not use inheritance because I needed a different kind of node for this class, and although perhaps
+ * there was a way to make it work by having the node inherit from BinaryNode as well, I ran into issues with old
+ * methods being fully compatible with this class. Since I felt short on time, I decided to make this its own class.
+ * I wanted to recognize that this class did not have to be built from scratch completely, though. There are several
+ * methods that work on this tree as well as any other binary tree. Aside from the add method, and the many methods that
+ * support that method, nearly all other methods are borrowed from BinaryTree, with the update that they use the
+ * RedBlackNode node. 
+ * 
+ * I used this guide to help me build this tree: https://www.happycoders.eu/algorithms/red-black-tree-java/
+ * (I really enjoyed making this tree!)
  * @param <T> generic of type T
  */
 public class RedBlackTree<T extends Comparable<? super T>> implements SearchTreeInterface<T>, Iterable<T>{
@@ -27,7 +38,7 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
      * Partial Constructor - creates a tree with a root note with parameter data
      * This class not allow trees to be constructed where user chooses parent, left, or right children.
      * New nodes must be added via add method, so they are added in correct place with correct red/black color.
-     * @param rootData
+     * @param rootData information to be stored in the initial root of the tree
      */
     public RedBlackTree(T rootData) {
         setRootNode(new RedBlackNode<T>(rootData, null, null, null));
@@ -38,23 +49,30 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
     // --------------------- // --- SEARCH/ADD/DELETE --- // --------------------- //
 
     /**
-     * Searches for a specific entry in this tree.
-     *
-     * @param anEntry An object to be found.
-     * @return True if the object was found in the tree.
+     * {@inheritDoc}
      */
     @Override
     public boolean contains(T anEntry) {
         return getEntry(anEntry) != null;
     }
 
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public T getEntry(T anEntry) {
         return findEntry(getRootNode(), anEntry);
     } // end getEntry
 
 
+    /**
+     * private helper function of getEntry
+     *
+     * @param rootNode root of the subtree we are searching
+     * @param anEntry data value we are trying to locate
+     * @return Either the object that was found in the tree or null if no such object exists.
+     *
+     */
     private T findEntry(RedBlackNode<T> rootNode, T anEntry) {
         T result = null;
 
@@ -74,19 +92,12 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
 
 
     /**
-     * Adds a new entry to this tree, if it does not match an existing
-     * object in the tree. Otherwise, replaces the existing object with
-     * the new entry.
-     *
-     * @param anEntry An object to be added to the tree.
-     * @return Either null if anEntry was not in the tree but has been added, or
-     * the existing entry that matched the parameter anEntry
-     * and has been replaced in the tree.
+     * {@inheritDoc}
      */
     @Override
     public T add(T anEntry) {
         if (isEmpty()) {
-            root = new RedBlackNode(anEntry, null, null, null);
+            root = new RedBlackNode<>(anEntry, null, null, null);
             root.setBlack(); //Most R-B Trees require root to be black
             return null;
         }
@@ -95,28 +106,20 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
         T nodeData;
         RedBlackNode<T> parent = null;
 
-        //Traverse to find spot to put new entry
+        // Traverse to find spot to put new entry
         while (node != null) {
             parent = node;
             nodeData = node.getData();
-            if (anEntry.compareTo(nodeData) < 0) { // anEntry smaller than current node
+            if (anEntry.compareTo(nodeData) < 0) { // anEntry is smaller than current node
                 node = node.getLeftChild();
-            } else if (anEntry.compareTo(nodeData) > 0 ) { // anEntry larger than current node
+            } else if (anEntry.compareTo(nodeData) > 0 ) { // anEntry is larger than current node
                 node = node.getRightChild();
-            } else { //anEntry the same as current node
+            } else { // anEntry is the same as current node
                 RedBlackNode<T> temp = node; // save old node
                 // create new entry, setting the children and parents to temp's old children and parents.
-                RedBlackNode newEntry = new RedBlackNode(anEntry, temp.getParent(),
-                                                            temp.getLeftChild(), temp.getRightChild());
+                RedBlackNode<T> newEntry = createDuplicateNode(anEntry, temp);
 
-                /* Set color to original entry's color, since our BST was a valid R-B Tree before insert,
-                if we are inserting into a place that is the same as it*/
-                boolean black = temp.isBlack();
-                if (black) { // new entry is already red, so change color if it's black
-                    newEntry.setBlack();
-                }
-
-                //set children's parents to be the new Node.
+                // Set children's parents to be the new node
                 if ( temp.getLeftChild() != null) {
                     temp.getLeftChild().setParent(newEntry);
                 }
@@ -124,17 +127,17 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
                     temp.getRightChild().setParent(newEntry);
                 }
 
-                //set temp's parent to point at new child and vice versa.
+                // Set temp's parent to point at new child and vice versa.
                 replaceParentsChild(temp.getParent(), temp, newEntry);
 
-                //return old entry
+                //Return old entry
                 return temp.getData();
             }
         }
 
         //Insert new entry
         T parentData = parent.getData();
-        RedBlackNode newEntry = new RedBlackNode(anEntry, parent, null, null);
+        RedBlackNode<T> newEntry = new RedBlackNode<>(anEntry, parent, null, null);
 
         if (anEntry.compareTo(parentData) < 0) {
             parent.setLeftChild(newEntry);
@@ -145,108 +148,151 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
         //After we add a new node, the properties of R-B trees may be disrupted, so we need to fix them.
         fixRedBlackPropertiesAfterAdd(newEntry);
 
-        return null;
-    }
-
-
-    /**
-     *
-     * Property 1: All Nodes must be Red or Black
-     * @param node
-     */
-    private void fixRedBlackPropertiesAfterAdd(RedBlackNode<T> node) {
-        RedBlackNode parent = node.getParent();
-
-        // Property 2: The Root must be black. (Incidentally, this is an optional rule, not all R-B enforce)
-        if (parent == null) { // The only node without a parent is the root.
-            node.setBlack();
-            return;
-        }
-
-        // For all future cases, we only need to perform recoloring if the parent is RED
-        if (!parent.isBlack()) {
-            RedBlackNode<T> grandparent = parent.getParent();
-            RedBlackNode<T> aunt = getAunt(parent);
-
-            // Situation: Aunt is Red -> Recolor the parent, grandparent and aunt
-            // I believe this usually occurs when there are two consecutive reds
-            if (aunt != null && !aunt.isBlack()) {
-                aunt.setBlack();
-                parent.setBlack();
-                grandparent.setRed();
-
-                /* Recursively call to see if properties need to be adjusted up the trees. This will not cause
-                 infinite recursion because our tree is getting simpler since we are moving upwards */
-                fixRedBlackPropertiesAfterAdd(grandparent);
-            }
-
-            // Property 4: Every path from root to NIL node must contain the same number of black nodes (black height)
-            // parent is left child of grandparent and aunt is black
-            else if (parent == grandparent.getLeftChild()) {
-                //Violating node is in left-right subtree, requiring a left-right rotation
-                if (node == parent.getRightChild()) {
-                    rotateLeft(parent);
-                    parent = node;
-                    // right rotation is done after we leave this if statement
-                }
-
-                //Violating node (was always or now is) in left-left subtree, requiring a right rotation.
-                rotateRight(grandparent);
-
-                //recolor original parent and grandparent;
-                parent.setBlack();
-                grandparent.setRed();
-            }
-
-            else {
-                //Violating node is in right-left subtree requiring a right-left rotation
-                if (node == parent.getLeftChild()) {
-                    rotateRight(parent);
-                    parent = node;
-                    // left rotation is done after we leave this statement
-                }
-
-                //Violating node (was always or now is) in right-right subtree, requiring a left rotation.
-                rotateLeft(grandparent);
-
-                //recolor original parent and grandparent;
-                parent.setBlack();
-                grandparent.setRed();
-            }
-        }
-    }
-
-    private RedBlackNode<T> getAunt(RedBlackNode<T> parent) {
-        RedBlackNode<T> grandparent = parent.getParent();
-        if (grandparent.getLeftChild() == parent) {
-            return grandparent.getRightChild();
-        } else if (grandparent.getRightChild() == parent) {
-            return grandparent.getLeftChild();
-        } else {
-            throw new IllegalStateException("Parent is not a child of its grandparent.");
-        }
+        return null; // if we get here, a new entry has been added
     }
 
     /**
-     * Removes a specific entry from this tree.
-     *
-     * @param anEntry An object to be removed.
-     * @return Either the object that was removed from the tree or
-     * null if no such object exists.
+     * {@inheritDoc}
      */
     @Override
     public T remove(T anEntry) {
         throw new UnsupportedOperationException();
     }
+
     // --------------------- // --- SEARCH/ADD/DELETE END --- // --------------------- //
 
 
+    // -------------------- // --- HELPER FUNCTIONS FOR ADD --- // -------------------- //
+    /**
+     * private helper function for add() for code clarity
+     *
+     * @param anEntry data for entry you want to duplicate
+     * @param temp node that you want to duplicate
+     * @param <T> generic of type T
+     * @return the duplicate node
+     */
+    private static <T extends Comparable<? super T>> RedBlackNode<T> createDuplicateNode(T anEntry, RedBlackNode<T> temp) {
+        RedBlackNode<T> newEntry = new RedBlackNode<>(anEntry, temp.getParent(), temp.getLeftChild(), temp.getRightChild());
+
+        /* Set color to original entry's color, since our BST was a valid R-B Tree before insert, if we are inserting
+        into a place that is the same as it. */
+        boolean black = temp.isBlack();
+        if (black) { // new entry is already red, so change color if it's black
+            newEntry.setBlack();
+        }
+        return newEntry;
+    }
+
+
+    /**
+     * Method fix any rule violations that might have occurred after a new node is added.
+     *
+     * @param node that we are currently inspecting for and to fix rule violations
+     */
+    private void fixRedBlackPropertiesAfterAdd(RedBlackNode<T> node) {
+        RedBlackNode<T> parent = node.getParent();
+
+        // This part helps fix the property: The Root must be black.
+        if (parent == null) { // The only node without a parent is the root.
+            node.setBlack();
+            return; // if this is the violation there is nothing more to check.
+        }
+
+        /* For all future cases, we only need to perform recoloring if the parent is RED
+         If parent is black, this will not cause any issues as all new adds are initially red nodes
+         This means that we won't violate the property: No consecutive red nodes
+         Adding a red also means we won't violate the property: all paths root to NIL leaf have the same number
+         of black nodes.
+
+         This means if our parent is red then our parent is red then there is a violation we must fix:
+         No consecutive red nodes */
+        if (!parent.isBlack()) {
+            RedBlackNode<T> grandparent = parent.getParent();
+            RedBlackNode<T> aunt = getAunt(parent);
+
+            // Situation: Aunt is Red -> Recolor the parent, grandparent and aunt
+            if (aunt != null && !aunt.isBlack()) {
+                aunt.setBlack();
+                parent.setBlack();
+                grandparent.setRed();
+
+                /* This recolor  could cause different property violations up the tree.
+                 Recursively call this function to see if properties need to be adjusted up the trees. This will
+                 not cause infinite recursion because our tree is getting simpler since we are moving upwards */
+                fixRedBlackPropertiesAfterAdd(grandparent);
+            }
+
+            // Situation: Aunt is Black -> Do a Rotation and a recolor.
+            /* If the node in question is in the left-left or right-right subtree then we will do a single rotation
+               and swap the colors of the parent and grandparent of that node. If the node is in the left-right
+               subtree or the right-left subtree then we will do a double rotation and swap the color of the
+               node in question (which becomes the parent node by the second rotation) and the grandparent. */
+            else if (parent == grandparent.getLeftChild()) {
+                //Violating node is in left-right subtree, requiring a left-right rotation
+                if (node == parent.getRightChild()) {
+                    rotateLeft(parent); // shifts the imbalance to be left-left
+                    parent = node; // node is now the parent of the subtree
+                    // Right rotation is done after we leave this if statement.
+                }
+
+                // Node in question (was always or now is) in left-left subtree, requiring a right rotation.
+                rotateRight(grandparent);
+
+                // Recolor parent and grandparent.
+                parent.setBlack();
+                grandparent.setRed();
+            }
+
+            else {
+                // Violating node is in right-left subtree requiring a right-left rotation
+                if (node == parent.getLeftChild()) {
+                    rotateRight(parent); //shifts the imbalance to be right-right
+                    parent = node; // node is now the parent of the subtree
+                    // Left rotation is done after we leave this if statement.
+                }
+
+                // Node in question (was always or now is) in right-right subtree, requiring a left rotation.
+                rotateLeft(grandparent);
+
+                // Recolor parent and grandparent.
+                parent.setBlack();
+                grandparent.setRed();
+            }
+        }
+    }
+
+    /**
+     * private helper function of fixRedBlackPropertiesAfterAdd.
+     * The beauty of Red-Black Trees is that they figure out height balancing not through recalculating the height
+     * of nodes, but by the color of particular nodes. The aunt node of a new node being added is particularly
+     * helpful in deciding what actions need to be taken to fix any rule violations and rebalance the tree.
+     * The aunt node is the sibling node of a parent node. (Also sometimes called uncle nodes).
+     *
+     * @param parent parent of the node in question
+     * @return the aunt of the node in question, or the sibling of the parent parameter
+     */
+    private RedBlackNode<T> getAunt(RedBlackNode<T> parent) {
+        RedBlackNode<T> grandparent = parent.getParent();
+        if (grandparent.getLeftChild() == parent) { // need to figure out which side is parent and which side is aunt
+            return grandparent.getRightChild();
+        } else if (grandparent.getRightChild() == parent) {
+            return grandparent.getLeftChild();
+        } else { // just in case some wires get crossed...
+            throw new IllegalStateException("Parent is not a child of its grandparent.");
+        }
+    }
+
+
+
     // ----------------------- // --- ROTATION METHODS --- // ----------------------- //
-    private void rotateRight(RedBlackNode node) {
-        RedBlackNode parent = node.getParent();
+    /** Corrects an imbalance on the left side of a left subtree.
+     * @param node node that we need to rotate to fix the imbalance
+     */
+    private void rotateRight(RedBlackNode<T> node) {
+        RedBlackNode<T> parent = node.getParent();
 
         // Point at the node's left child. This will rotate up and become the new root of the subtree at method's end.
-        RedBlackNode leftChild = node.getLeftChild();
+        RedBlackNode<T> leftChild = node.getLeftChild();
 
         /* Set the node's left child to now be its current left child's right child.
          Since the leftChild will soon be the new root of the subtree, it's new right will need to be the old root: node
@@ -268,12 +314,14 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
         replaceParentsChild(parent, node, leftChild);
     }
 
-
-    private void rotateLeft(RedBlackNode node) {
-        RedBlackNode parent = node.getParent();
+    /** Corrects an imbalance on the right side of a right subtree.
+     * @param node node that we need to rotate to fix the imbalance
+     */
+    private void rotateLeft(RedBlackNode<T> node) {
+        RedBlackNode<T> parent = node.getParent();
 
         // Point at the node's right child. This will rotate up and become the new root of the subtree.
-        RedBlackNode rightChild = node.getRightChild();
+        RedBlackNode<T> rightChild = node.getRightChild();
 
         /* Set the node's right child to be the left child of its current right child.
          * Since rightChild will soon become the new root of the subtree, it's new left child will need to be the old
@@ -306,7 +354,7 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
      * @param oldChild the old root of the subtree, which is the old child of the parent
      * @param newChild the new root of the subtree, which is the new child of the parent
      */
-    private void replaceParentsChild(RedBlackNode parent, RedBlackNode oldChild, RedBlackNode newChild) {
+    private void replaceParentsChild(RedBlackNode<T> parent, RedBlackNode<T> oldChild, RedBlackNode<T> newChild) {
         /* If there is no parent, we rotated at the very root of the tree, so we must reassign this field to the node
          that has rotated into the root position. */
         if (parent == null) {
@@ -323,14 +371,12 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
             newChild.setParent(parent);
         }
     }
-    // ----------------------- // --- ROTATION METHODS END --- // ----------------------- //
+    // ----------------------- // --- END ROTATION METHODS --- // ----------------------- //
+    // ------------------- // --- END HELPER FUNCTIONS FOR ADD --- // ------------------- //
 
 
     /**
-     * Creates an iterator that traverses all entries in this tree.
-     *
-     * @return An iterator that provides sequential and ordered access
-     * to the entries in the tree.
+     * {@inheritDoc}
      */
     @Override
     public Iterator<T> getInorderIterator() {
@@ -350,7 +396,9 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
         return new InorderIterator();
     }
 
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public T getRootData() {
         if (isEmpty())
@@ -361,7 +409,9 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
 
 
     /**
-     * @param rootNode
+     * private function that allows methods to set the root node.
+     * Only available to class, do not want a user to be able to set the root.
+     * @param rootNode node to become the root.
      */
     private void setRootNode(RedBlackNode<T> rootNode) {
         root = rootNode;
@@ -369,15 +419,17 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
 
 
     /**
-     * @return
+     * Returns the root node of the tree.
+     *
+     * @return the root node of the tree
      */
-    protected RedBlackNode<T> getRootNode() {
+    public RedBlackNode<T> getRootNode() {
         return root;
     }
 
 
     /**
-     * @return
+     * {@inheritDoc}
      */
     @Override
     public int getHeight() {
@@ -390,7 +442,7 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
 
 
     /**
-     * @return
+     * {@inheritDoc}
      */
     @Override
     public int getNumberOfNodes() {
@@ -402,7 +454,7 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
 
 
     /**
-     * @return
+     * {@inheritDoc}
      */
     @Override
     public boolean isEmpty() {
@@ -411,7 +463,7 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
 
 
     /**
-     *
+     * {@inheritDoc}
      */
     @Override
     public void clear() {
@@ -419,23 +471,38 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
     }
 
 
+    /**
+     * Creates an Iterator that uses an inorder traversal
+     */
     private class InorderIterator implements Iterator<T> {
+        /** Holds the nodes as we traverse down a tree and pops them in correct order when we come back up. */
         private StackInterface<RedBlackNode<T>> nodeStack;
+        /** The current node in the iteration. */
         private RedBlackNode<T> currentNode;
 
-        public InorderIterator()
-        {
+
+        /** Constructor */
+        public InorderIterator() {
             nodeStack = new LinkedStack<>();
             currentNode = root;
-        } // end default constructor
+        }
 
-        public boolean hasNext()
-        {
+
+        /**
+         * Detects if there is another node in the iteration.
+         * @return true if there is another node in the iteration, false otherwise
+         */
+        public boolean hasNext() {
             return !nodeStack.isEmpty() || (currentNode != null);
-        } // end hasNext
+        }
 
-        public T next()
-        {
+
+        /**
+         * Returns the next node in the iteration.
+         * @return the next node in the iteration
+         * @throws NoSuchElementException if there are no more nodes left in the iteration
+         */
+        public T next() {
             RedBlackNode<T> nextNode = null;
 
             // Find leftmost node with no left child
@@ -457,11 +524,15 @@ public class RedBlackTree<T extends Comparable<? super T>> implements SearchTree
                 throw new NoSuchElementException();
 
             return nextNode.getData();
-        } // end next
+        }
 
+
+        /**
+         * Remove method not supported for this tree.
+         */
         public void remove()
         {
             throw new UnsupportedOperationException();
-        } // end remove
+        }
     } // end InorderIterator
 }

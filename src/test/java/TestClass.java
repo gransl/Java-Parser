@@ -1,4 +1,3 @@
-
 public class TestClass {
     private String str;
     private int num;

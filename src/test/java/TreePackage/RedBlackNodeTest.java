@@ -56,6 +56,7 @@ class RedBlackNodeTest {
         tau.setParent(pi);
         assertEquals(pi, e.getParent());
         assertEquals(pi, tau.getParent());
+        assertNull(pi.getParent());
     }
 
 
